@@ -31,7 +31,7 @@ void Lexique_lignes :: printLexique(){
         size++;
         cout << it -> first << " : ";
         for(lines_iterator = (it -> second).begin(); lines_iterator != (it -> second).end(); lines_iterator++){
-            if(lines_iterator == (it -> second).begin()){
+            if(lines_iterator != (it -> second).begin()){
                 cout << ", " ;
             }
             cout << *lines_iterator;
@@ -60,7 +60,7 @@ int Lexique_lignes :: read_files(string path){
     }
 
     string word;
-    int line;
+    int line = 1;
 
     // Reading the file, spliting it word by word, and adding it to the lexique
     for(int i = 0; i < content.size(); i++){
