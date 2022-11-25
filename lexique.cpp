@@ -15,15 +15,14 @@ int Lexique :: read_file(string path){
         return 1;   // file empty
     }
 
-    // clearing the punctuation
-    remove_punctuation(content);
-
     string word;
 
     // Reading the file, spliting it word by word, and adding it to the lexique
     for(int i = 0; i < content.size(); i++){
-        if(content[i] == ' ' || content[i] == '\n'){
+        if(content[i] == ' ' || content[i] == '\n' || content[i] == EOF){
             if(word.size() != 0){
+                // clearing the punctuation
+                remove_punctuation(content);
                 addWord(word);
                 word = "";
             }
