@@ -17,7 +17,7 @@ public:
     int removeWord(string word);
     int read_file(string path);        // Reading the specified file and adding it's words
     void printLexique(void);        // Printing every word in words 
-    Lexique operator+=(Lexique lexique2);
+    void operator+=(Lexique lexique2);
 
     // accesseurs en lecture
     map<string, int> getWords(){ return words;}

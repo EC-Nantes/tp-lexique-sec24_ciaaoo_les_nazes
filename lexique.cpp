@@ -90,7 +90,7 @@ int Lexique::removeWord(string word){
         return 1;
 }
 
-Lexique Lexique::operator+=(Lexique lexique2){
+void Lexique::operator+=(Lexique lexique2){
     map<string, int>::iterator it;
     for(it = lexique2.getWords().begin(); it != lexique2.getWords().end(); it++){
         string word = it->first;
