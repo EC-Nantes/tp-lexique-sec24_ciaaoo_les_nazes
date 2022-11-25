@@ -48,12 +48,13 @@ void Lexique :: printLexique(void){
 
 int Lexique::addWord(string word) {
     int occurence;
+
     if(words.find(word) == words.end()){
         words.insert({ word, 1 });
     }
     else{
-        occurence = words.at(word);
-        occurence += 1;
+        occurence = words.at(word) + 1;
+        removeWord(word);
         words.insert({word, occurence});
     }
     return occurence;
