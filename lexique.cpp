@@ -67,6 +67,7 @@ void Lexique :: printLexique(void){
     cout << "Total entries : " << size << " words" << endl;
 }
 
+// lexique
 int Lexique::addWord(string word) {
     int occurence;
 
