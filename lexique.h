@@ -13,8 +13,8 @@ protected:
 
 public:
     lexique();
-    int addWord(string);
-    int removeWord(string);
-    int read_file(string path);     // Reading the specified file and adding it's words
+    int addWord(string word);
+    int removeWord(string word);
+    int read_file(string path);        // Reading the specified file and adding it's words
     void printLexique(void);        // Printing every word in words 
 };

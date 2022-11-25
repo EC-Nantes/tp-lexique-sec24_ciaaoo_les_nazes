@@ -38,3 +38,15 @@ void lexique :: printLexique(void){
 
     cout << "finished" << endl;
 }
+
+int lexique::addWord(string word) {
+    int occurence;
+    if(words.find(word) == words.end()){
+        words.insert({ word, 1 });
+    }
+    else{
+        occurence = words.at(word);
+        occurence += 1;
+        words.insert({word, occurence});
+    }
+}
