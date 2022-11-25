@@ -9,8 +9,6 @@ protected:
     map<string, int> words;
 
 public:
-    lexique(char nom);
-    
 
 
 };
