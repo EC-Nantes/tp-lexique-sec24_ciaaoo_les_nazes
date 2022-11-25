@@ -1,5 +1,9 @@
 #include "lexique.h"
 
+Lexique :: Lexique(){
+    
+}
+
 int Lexique :: read_file(string path){
 
     string content; // file's content
