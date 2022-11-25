@@ -11,6 +11,8 @@ protected:
     map<string, int> words;
 
 public:
-    
+    lexique();
+    int addWord(string);
+    int removeWord(string);
     read_file();
 };
