@@ -23,8 +23,10 @@ int Lexique :: read_file(string path){
     // Reading the file, spliting it word by word, and adding it to the lexique
     for(int i = 0; i < content.size(); i++){
         if(content[i] == ' ' || content[i] == '\n'){
-            addWord(word);
-            word = "";
+            if(word.size() != 0){
+                addWord(word);
+                word = "";
+            }
         } else {
             word += content[i];
         }
