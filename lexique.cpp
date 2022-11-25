@@ -25,3 +25,16 @@ int lexique :: read_file(string path){
 
     return 0;
 }
+
+void lexique :: printLexique(void){
+
+    map<string, int>::iterator it;
+
+    cout << "Lexique :" << endl;
+
+    for(it = words.begin(); it != words.end(); it++){
+        cout << it -> first << " : " << it -> second << endl;
+    }
+
+    cout << "finished" << endl;
+}
