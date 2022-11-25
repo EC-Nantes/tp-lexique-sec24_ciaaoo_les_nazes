@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <map>
+#include "utilitaire.hpp"
 
 using namespace std;
 
@@ -11,6 +12,6 @@ protected:
     map<string, int> words;
 
 public:
-    
-    read_file();
+
+    int read_file(string path);        // Reading the specified file and adding it's words
 };
