@@ -15,6 +15,7 @@ int Lexique :: read_file(string path){
         return 1;   // file empty
     }
 
+    // clearing the punctuation
     remove_punctuation(content);
 
     string word;
