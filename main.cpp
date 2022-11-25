@@ -7,9 +7,15 @@ int main(int argv, const char * args[]){
     SetConsoleOutputCP(CP_UTF8);
 
     Lexique lexique;
+    Lexique lexique2;
 
     lexique.read_file(args[1]);
     lexique.printLexique();
+
+
+    lexique2.read_file(args[1]);
+
+    lexique+=lexique2;
 
     return 0;
 }
