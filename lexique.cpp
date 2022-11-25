@@ -53,4 +53,14 @@ int Lexique::addWord(string word) {
         occurence += 1;
         words.insert({word, occurence});
     }
+    return occurence;
+}
+
+int Lexique::removeWord(string word){
+     if(words.find(word) != words.end()){
+        words.erase(word);
+        return 0;
+    }
+    else 
+        return 1;
 }
