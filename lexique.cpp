@@ -1,7 +1,7 @@
 #include "lexique.h"
 
 Lexique :: Lexique(){
-    
+
 }
 
 int Lexique :: read_file(string path){
@@ -14,6 +14,8 @@ int Lexique :: read_file(string path){
     if(content.size() == 0){
         return 1;   // file empty
     }
+
+    remove_punctuation(content);
 
     string word;
 
