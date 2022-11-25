@@ -1,7 +1,7 @@
 #include "lexique.h"
 
 Lexique :: Lexique(){
-
+    
 }
 
 int Lexique :: read_file(string path){
@@ -67,3 +67,10 @@ int Lexique::removeWord(string word){
     else 
         return 1;
 }
+
+Lexique Lexique::operator+=(Lexique lexique2){
+    for(words.begin iterator it=ta_map.begin() ; it!=ta_map.end() ; ++it){
+
+    }
+
+}   
