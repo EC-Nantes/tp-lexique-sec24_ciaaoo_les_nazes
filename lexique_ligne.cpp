@@ -32,7 +32,7 @@ void Lexique_lignes :: printLexique(){
         cout << it -> first << " : ";
         for(lines_iterator = (it -> second).begin(); lines_iterator != (it -> second).end(); lines_iterator++){
             if(lines_iterator == (it -> second).begin()){
-                cout << ", " 
+                cout << ", " ;
             }
             cout << *lines_iterator;
         }
@@ -41,4 +41,9 @@ void Lexique_lignes :: printLexique(){
 
     cout << "Total entries : " << size << " words" << endl;
 
+}
+
+int Lexique_lignes :: removeWord(string word){
+    lexique_lignes.erase(word);
+    return 0;
 }
