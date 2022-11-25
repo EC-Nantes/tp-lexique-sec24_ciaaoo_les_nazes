@@ -70,7 +70,7 @@ void Lexique :: printLexique(void){
 int Lexique::addWord(string word) {
     int occurence;
 
-    if(words.find(word) == words.end()){
+        if(words.find(word) == words.end()){
         words.insert({ word, 1 });
     }
     else{
@@ -92,7 +92,16 @@ int Lexique::removeWord(string word){
 
 Lexique Lexique::operator+=(Lexique lexique2){
     map<string, int>::iterator it;
-    for(it = lexique2.getWords().begin(); it != words.end(); it++){
-
+    for(it = lexique2.getWords().begin(); it != lexique2.getWords().end(); it++){
+        string word = it->first;
+        int occurence = it-> second;
+        if(words.find(word) != words.end()){
+                occurence += words.at(word);
+                removeWord (word);
+                words.insert({word, occurence});
+        }
+        else{
+            words.insert({word, occurence});
+        }
     }
 }
