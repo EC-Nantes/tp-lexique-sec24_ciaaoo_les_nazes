@@ -1,7 +1,7 @@
 #include "lexique.h"
 
 Lexique :: Lexique(){
-    
+
 }
 
 int Lexique :: read_file(string path){
@@ -15,19 +15,38 @@ int Lexique :: read_file(string path){
         return 1;   // file empty
     }
 
-    // clearing the punctuation
-    remove_punctuation(content);
-
     string word;
 
     // Reading the file, spliting it word by word, and adding it to the lexique
     for(int i = 0; i < content.size(); i++){
-        if(content[i] == ' ' || content[i] == '\n'){
-            addWord(word);
-            word = "";
+        if(content[i] == ' ' 
+        || content[i] == '\n' 
+        || content[i] == ';' 
+        || content[i] == '.' 
+        || content[i] == ',' 
+        || content[i] == '!' 
+        || content[i] == '?'
+        || content[i] == '_'
+        || content[i] == '"'
+        || content[i] == '{'
+        || content[i] == '}'
+        || content[i] == '('
+        || content[i] == ')'
+        || content[i] == '-'
+        || content[i] == ':'
+        || content[i] == '\''
+        ){
+            if(word.size() != 0){
+                addWord(word);
+                word = "";
+            }
         } else {
             word += content[i];
         }
+    }
+
+    if(word.size() != 0){
+        addWord(word);
     }
 
     return 0;
@@ -36,25 +55,27 @@ int Lexique :: read_file(string path){
 void Lexique :: printLexique(void){
 
     map<string, int>::iterator it;
+    int size = 0;
 
     cout << "Lexique :" << endl;
 
     for(it = words.begin(); it != words.end(); it++){
+        size++;
         cout << it -> first << " : " << it -> second << endl;
     }
 
-    cout << "finished" << endl;
+    cout << "Total entries : " << size << " words" << endl;
 }
 
-// lexique
 int Lexique::addWord(string word) {
     int occurence;
+
     if(words.find(word) == words.end()){
         words.insert({ word, 1 });
     }
     else{
-        occurence = words.at(word);
-        occurence += 1;
+        occurence = words.at(word) + 1;
+        removeWord(word);
         words.insert({word, occurence});
     }
     return occurence;
@@ -68,10 +89,3 @@ int Lexique::removeWord(string word){
     else 
         return 1;
 }
-
-Lexique Lexique::operator+=(Lexique lexique2){
-    for(words.begin iterator it=ta_map.begin() ; it!=ta_map.end() ; ++it){
-
-    }
-
-}   
