@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <map>
+#include "utilitaire.hpp"
 
 using namespace std;
 
@@ -13,6 +14,6 @@ protected:
 public:
     lexique();
     int addWord(string);
-    int removeWord(string);
-    read_file();
+int removeWord(string);
+    int read_file(string path);        // Reading the specified file and adding it's words
 };
