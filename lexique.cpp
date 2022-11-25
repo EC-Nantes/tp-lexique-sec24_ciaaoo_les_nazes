@@ -19,10 +19,24 @@ int Lexique :: read_file(string path){
 
     // Reading the file, spliting it word by word, and adding it to the lexique
     for(int i = 0; i < content.size(); i++){
-        if(content[i] == ' ' || content[i] == '\n' || content[i] == EOF){
+        if(content[i] == ' ' 
+        || content[i] == '\n' 
+        || content[i] == ';' 
+        || content[i] == '.' 
+        || content[i] == ',' 
+        || content[i] == '!' 
+        || content[i] == '?'
+        || content[i] == '_'
+        || content[i] == '"'
+        || content[i] == '{'
+        || content[i] == '}'
+        || content[i] == '('
+        || content[i] == ')'
+        || content[i] == '-'
+        || content[i] == ':'
+        || content[i] == '\''
+        ){
             if(word.size() != 0){
-                // clearing the punctuation
-                remove_punctuation(content);
                 addWord(word);
                 word = "";
             }
@@ -31,20 +45,26 @@ int Lexique :: read_file(string path){
         }
     }
 
+    if(word.size() != 0){
+        addWord(word);
+    }
+
     return 0;
 }
 
 void Lexique :: printLexique(void){
 
     map<string, int>::iterator it;
+    int size = 0;
 
     cout << "Lexique :" << endl;
 
     for(it = words.begin(); it != words.end(); it++){
+        size++;
         cout << it -> first << " : " << it -> second << endl;
     }
 
-    cout << "finished" << endl;
+    cout << "Total entries : " << size << " words" << endl;
 }
 
 int Lexique::addWord(string word) {
