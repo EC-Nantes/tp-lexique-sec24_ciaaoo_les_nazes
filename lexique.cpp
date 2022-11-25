@@ -91,7 +91,8 @@ int Lexique::removeWord(string word){
 }
 
 Lexique Lexique::operator+=(Lexique lexique2){
-    for(words.begin iterator it=ta_map.begin() ; it!=ta_map.end() ; ++it){
+    map<string, int>::iterator it;
+    for(it = lexique2.getWords().begin(); it != words.end(); it++){
 
     }
 }
