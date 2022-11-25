@@ -11,5 +11,5 @@ public:
     lexique(char nom);
     
 
-
+    read_file();
 };
