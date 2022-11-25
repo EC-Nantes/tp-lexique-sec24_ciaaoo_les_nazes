@@ -1,6 +1,10 @@
 #include "lexique.h"
 
-int lexique :: read_file(string path){
+Lexique :: Lexique(){
+    
+}
+
+int Lexique :: read_file(string path){
 
     string content; // file's content
 
@@ -26,7 +30,7 @@ int lexique :: read_file(string path){
     return 0;
 }
 
-void lexique :: printLexique(void){
+void Lexique :: printLexique(void){
 
     map<string, int>::iterator it;
 
@@ -39,7 +43,7 @@ void lexique :: printLexique(void){
     cout << "finished" << endl;
 }
 
-int lexique::addWord(string word) {
+int Lexique::addWord(string word) {
     int occurence;
     if(words.find(word) == words.end()){
         words.insert({ word, 1 });

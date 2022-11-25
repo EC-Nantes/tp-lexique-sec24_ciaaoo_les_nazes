@@ -7,12 +7,12 @@
 
 using namespace std;
 
-class lexique{
+class Lexique{
 protected:
     map<string, int> words;
 
 public:
-    lexique();
+    Lexique();
     int addWord(string word);
     int removeWord(string word);
     int read_file(string path);        // Reading the specified file and adding it's words
