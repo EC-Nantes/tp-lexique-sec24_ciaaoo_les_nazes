@@ -31,7 +31,7 @@ void Lexique_lignes :: printLexique(){
         size++;
         cout << it -> first << " : ";
         for(lines_iterator = (it -> second).begin(); lines_iterator != (it -> second).end(); lines_iterator++){
-            if(lines_iterator == (it -> second).begin()){
+            if(lines_iterator != (it -> second).begin()){
                 cout << ", " ;
             }
             cout << *lines_iterator;
@@ -45,5 +45,58 @@ void Lexique_lignes :: printLexique(){
 
 int Lexique_lignes :: removeWord(string word){
     lexique_lignes.erase(word);
+    return 0;
+}
+
+int Lexique_lignes :: read_files(string path){
+
+    string content; // file's content
+
+    readFileIntoString(path, content);  // reading the file in content
+    
+    // Was the file empty ?
+    if(content.size() == 0){
+        return 0;;
+    }
+
+    string word;
+    int line = 1;
+
+    // Reading the file, spliting it word by word, and adding it to the lexique
+    for(int i = 0; i < content.size(); i++){
+        if(content[i] == ' ' 
+        || content[i] == '\n' 
+        || content[i] == ';' 
+        || content[i] == '.' 
+        || content[i] == ',' 
+        || content[i] == '!' 
+        || content[i] == '?'
+        || content[i] == '_'
+        || content[i] == '"'
+        || content[i] == '{'
+        || content[i] == '}'
+        || content[i] == '('
+        || content[i] == ')'
+        || content[i] == '-'
+        || content[i] == ':'
+        || content[i] == '\''
+        ){
+            if(word.size() != 0){
+                addWord(word, line);
+                word = "";
+            }
+        } else {
+            word += content[i];
+        }
+
+        if(content[i] == '\n'){
+            line++;
+        }
+    }
+
+    if(word.size() != 0){
+        addWord(word, line);
+    }
+
     return 0;
 }
