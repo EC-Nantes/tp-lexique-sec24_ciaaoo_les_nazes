@@ -10,12 +10,11 @@ int main(int argv, const char * args[]){
     Lexique lexique2;
 
     lexique.read_file(args[1]);
-    lexique.printLexique();
-
-
     lexique2.read_file(args[1]);
 
     lexique+=lexique2;
 
+    lexique.printLexique();
+    lexique2.printLexique();
     return 0;
 }

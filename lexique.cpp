@@ -95,9 +95,9 @@ void Lexique::operator+=(Lexique lexique2){
     for(it = lexique2.getWords().begin(); it != lexique2.getWords().end(); it++){
         string word = it->first;
         int occurence = it-> second;
-        if(words.find(word) != words.end()){
-                occurence += words.at(word);
-                removeWord (word);
+        if(this -> words.find(word) !=  this -> words.end()){
+                occurence += this -> words.at(word);
+                int booli = removeWord (word);
                 words.insert({word, occurence});
         }
         else{
